@@ -1,28 +1,27 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./ pages/Home";
-import NotFound from "./ pages/NotFound";
-import CountryPage from "./ pages/CountryPage";
-import './ styles/App.css'
-import Favourites from "./ pages/Favourites";
+import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+import Home from "./pages/Home";
+import Favourites from "./pages/Favourites";
+import Header from "./components/Header";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Header />
+  const [countries, setCountries] = useState([]);
 
-      <main>
-        <Routes>
-          <Route path="/favourites" element={<Favourites />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/country/:name" element={<div>Country Page</div>} />
-          <Route path="/favourites" element={<div>Favourites Page</div>} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/country/:code" element={<CountryPage />} />
-        </Routes>
-      </main>
-    </BrowserRouter>
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then((res) => res.json())
+      .then(setCountries);
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home countries={countries} />} />
+        <Route path="/favourites" element={<Favourites />} />
+      </Routes>
+    </>
   );
 }
 
