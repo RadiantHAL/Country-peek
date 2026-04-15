@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
-import useCountry from "../ hooks/useCountry";
-import "../ styles/App.css";
+import useCountry from "../hooks/useCountry";
+import "../styles/App.css";
 
 function CountryPage() {
   const { code } = useParams();
