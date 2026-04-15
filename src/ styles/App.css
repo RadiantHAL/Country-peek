@@ -335,3 +335,40 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* ===== FAV BUTTON ===== */
+.fav-btn {
+  margin-top: 12px;
+  width: 100%;
+
+  padding: 8px 12px;
+  border-radius: 10px;
+
+  border: none;
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  background: rgba(0,0,0,0.05);
+  color: #555;
+
+  transition: all 0.25s ease;
+}
+
+/* hover */
+.fav-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(0,0,0,0.1);
+}
+
+/* saved state */
+.fav-btn--saved {
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  color: white;
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+}
+
+/* glow */
+.fav-btn--saved:hover {
+  transform: scale(1.05);
+}
