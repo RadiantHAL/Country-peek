@@ -1,4 +1,4 @@
-/* :root {
+:root {
   --bg: #f5f7fb;
   --text: #111827;
   --card-bg: rgba(255,255,255,0.8);
@@ -19,4 +19,4 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: system-ui;
-} */
+}
